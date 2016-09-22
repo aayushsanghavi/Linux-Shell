@@ -15,7 +15,7 @@ extern int back, backpid[10], backcount;
 void runCommand(char *command)
 {
 	pid_t child;
-	int y;
+	int y, redirect;
 	int cstatus,i=1,check,k;
 	pid_t c;
 	char *token, *value, *process;
@@ -48,6 +48,13 @@ void runCommand(char *command)
 		token = strtok(NULL," ");
 	}
 	args[i]=NULL;
+
+	redirect = redirection(i);
+	if (redirect != 0)
+	{
+		runRedirect(redirect);
+		return;
+	}
 
 	if (check==1) //cd
 	{

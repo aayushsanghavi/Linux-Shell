@@ -8,7 +8,7 @@
 #include <string.h>
 #include <errno.h>
 
-char *user, *home, *t, *args[20];
+char *user, *home, *t, *args[20], file[20], file2[20];
 char temp[30], buff[2], cwd[1000], executable[30], buf2[1000], background[10][20], system_name[10];
 int back, backpid[10], backcount;
 
