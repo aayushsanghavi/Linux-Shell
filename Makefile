@@ -1,4 +1,4 @@
-SOURCES.c = main.c pinfo.c run.c start.c read.c background.c tilda.c
+SOURCES.c = main.c pinfo.c run.c start.c read.c background.c tilda.c redirection.c pipes.c
 INCLUDES= 
 CFLAGS=
 SLIBS= 
@@ -17,4 +17,3 @@ $(PROGRAM): $(INCLUDES) $(OBJECTS)
 
 clean:
 	rm -f $(PROGRAM) $(OBJECTS)
-

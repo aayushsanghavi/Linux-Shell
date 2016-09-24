@@ -94,7 +94,7 @@ void runRedirect(int type)
 	    }
 		else if (type == 3)
 	    {
-	        if ((fd = open(file, O_RDWR|O_APPEND)) < 0)
+	        if ((fd = open(file, O_CREAT|O_RDWR|O_APPEND, 00644)) < 0)
 	    	{
 	        	perror("Couldn't open output file");
 	        	exit(0);
@@ -120,7 +120,7 @@ void runRedirect(int type)
 		    }
 		   	else if (type == 5)
 		    {
-		        if ((fd2 = open(file, O_RDWR|O_APPEND)) < 0)
+		        if ((fd2 = open(file, O_CREAT|O_RDWR|O_APPEND, 00644)) < 0)
 		        {
 		        	perror("Couldn't open output file");
 		        	exit(0);

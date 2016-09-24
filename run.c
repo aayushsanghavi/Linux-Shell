@@ -15,11 +15,13 @@ extern int back, backpid[10], backcount;
 void runCommand(char *command)
 {
 	pid_t child;
-	int y, redirect;
+	int y, redirect, pipes;
 	int cstatus,i=1,check,k;
 	pid_t c;
 	char *token, *value, *process;
-	char variable[30];
+	char variable[30], pipe_command[30];
+	strcpy(pipe_command,command);
+
 	token = strtok(command, " ");
 	args[0] = token;
 	process = token;
@@ -53,6 +55,13 @@ void runCommand(char *command)
 	if (redirect != 0)
 	{
 		runRedirect(redirect);
+		return;
+	}
+
+	pipes = piping(i);
+	if (pipes)
+	{
+		runPipes(pipe_command);
 		return;
 	}
 
